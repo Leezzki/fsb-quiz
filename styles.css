@@ -1,0 +1,227 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(145deg, #EEF2FF 0%, #FDF4FF 50%, #ECFDF5 100%);
+  font-family: "Nunito", "Arial Rounded MT Bold", sans-serif;
+  color: #1F2937;
+}
+
+#app {
+  min-height: 100vh;
+  padding: 16px 12px;
+}
+
+@keyframes popIn {
+  0% { transform: scale(.7); opacity: 0; }
+  70% { transform: scale(1.06); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(24px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
+}
+
+@keyframes bob {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes badgePop {
+  0% { transform: scale(0) rotate(-20deg); opacity: 0; }
+  60% { transform: scale(1.15) rotate(5deg); }
+  100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+
+.pop { animation: popIn .4s cubic-bezier(.36,.07,.19,.97) both; }
+.slide { animation: slideUp .35s ease both; }
+.shake-it { animation: shake .4s ease; }
+.bob { animation: bob 2.5s ease-in-out infinite; }
+.badge-pop { animation: badgePop .5s cubic-bezier(.36,.07,.19,.97) both; }
+
+.page {
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.page.teacher-page {
+  max-width: 700px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 24px;
+  padding: 24px 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.09);
+}
+
+.center { text-align: center; }
+
+.big-btn {
+  border: none;
+  border-radius: 18px;
+  padding: 14px 32px;
+  font-size: 17px;
+  font-family: inherit;
+  font-weight: 900;
+  cursor: pointer;
+  transition: all .18s ease;
+  letter-spacing: .3px;
+}
+
+.big-btn:hover:not(:disabled) {
+  transform: scale(1.04);
+  box-shadow: 0 6px 20px rgba(0,0,0,.18);
+}
+
+.big-btn:active:not(:disabled) {
+  transform: scale(.98);
+}
+
+.big-btn:disabled {
+  cursor: default;
+}
+
+.opt-btn {
+  width: 100%;
+  border: 2.5px solid #E5E7EB;
+  border-radius: 14px;
+  padding: 13px 16px;
+  font-size: 15px;
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: left;
+  transition: all .16s ease;
+  background: #fff;
+  color: #1F2937;
+  margin-bottom: 9px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.opt-btn:hover:not(:disabled) {
+  border-color: #94A3B8;
+  background: #F8FAFC;
+  transform: translateX(4px);
+}
+
+.opt-btn:disabled { cursor: default; }
+
+.yg-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.yg-card {
+  border: 3px solid #E5E7EB;
+  border-radius: 20px;
+  padding: 16px 8px;
+  cursor: pointer;
+  transition: all .2s ease;
+  text-align: center;
+  background: #fff;
+}
+
+.yg-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 20px rgba(0,0,0,.12);
+}
+
+.yg-card.selected { transform: scale(1.04); }
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  border: 2.5px solid #E5E7EB;
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-size: 16px;
+  font-family: inherit;
+  font-weight: 700;
+  color: #1F2937;
+  outline: none;
+  transition: border .2s;
+}
+
+input:focus { border-color: #818CF8; }
+input.error { border-color: #EF4444; }
+
+.home-btn {
+  background: #F3F4F6;
+  border: none;
+  border-radius: 10px;
+  padding: 7px 14px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 900;
+  font-size: 13px;
+  color: #374151;
+}
+
+.quiz-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  gap: 8px;
+}
+
+.progress {
+  background: #E5E7EB;
+  border-radius: 999px;
+  height: 10px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 999px;
+  transition: width .5s ease;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.badge {
+  background: #FFF7ED;
+  border: 2px solid #FCD34D;
+  border-radius: 14px;
+  padding: 10px 14px;
+  text-align: center;
+  min-width: 100px;
+}
+
+.teacher-link {
+  background: none;
+  border: none;
+  color: #9CA3AF;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+@media (max-width: 520px) {
+  #app { padding: 12px 8px; }
+  .card { padding: 20px 14px; border-radius: 20px; }
+  .yg-card { padding: 12px 5px; }
+  .yg-card .year-label { font-size: 12px; }
+  .quiz-top { font-size: 12px; }
+}
